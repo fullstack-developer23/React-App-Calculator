@@ -4,7 +4,15 @@ body{
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: linear-gradient(45deg, #fff500, transparent);
+  animation-name: backk;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes backk{
+  0%{background-color: red;}
+  50%{background-color: blue;}
+  100%{background-color: green;}
 }
 
 .App {
@@ -13,6 +21,13 @@ body{
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+}
+
+.App h1{
+  position: relative;
+  animation-name: heading;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 
 .button-container h3{
@@ -57,4 +72,29 @@ body{
   justify-content: center;
   width: 250px;
   border-radius: 10px;
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
 }
+
+@keyframes example {
+  0%   {left:-600px; right:-600px;}
+  50%  {left: 600px; right: 600px;}
+  100% {left: 0px; right: 0px;}
+}
+
+@keyframes heading {
+  0%   {left:-600px; right:-600px; font-size: xx-large;}
+  50%  {left: 600px; right: 600px; font-size: large;}
+  100% {left: -600px; right: -600px; font-size: xx-large;}
+}
+
+@media only screen and (max-width : 768px) {
+  .button-container, body, .App h1{
+      animation: none !important;
+  }
+
+  body{
+    background-image: linear-gradient(45deg, #fff500, transparent);
+  }
+} 
