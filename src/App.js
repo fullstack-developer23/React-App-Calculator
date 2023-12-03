@@ -1,9 +1,13 @@
+//Importing different libraries and files in App Js file
+
 import './App.css';
 import {useState} from 'react';
 import { evaluate } from 'mathjs';
       const App = () => {
 
         const [sum, setSum] = useState("");
+
+// Initialised the buttons of calculator in a string form in a variable
 
   const buttons = 
         ["7", "8", "9", "C", "4", "5",
@@ -15,7 +19,6 @@ import { evaluate } from 'mathjs';
           setSum (sum + btnPress)
           if(btnPress === "=") {
             let expression = sum;
-
             try {
             setSum(evaluate(expression))
             } catch(error) {
@@ -34,9 +37,11 @@ import { evaluate } from 'mathjs';
        <div className="App">
         <h1>Calculator</h1>
        <div className="button-container">
+      {/* displaying the sum OR any number being pressed in a separate display screen box*/}
        <h3>{sum}</h3>
        {buttons.map((button, index) => {
         return (
+          //button click function working in below line of code
           <button key={index} className="buttonBox" onClick={() => handleClick (button)}>{button}</button>
         )
        })}
